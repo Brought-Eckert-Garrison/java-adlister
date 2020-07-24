@@ -20,3 +20,11 @@ CREATE TABLE ads (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+CREATE TABLE ratings (
+     number_of_ratings INT NOT NULL DEFAULT 0,
+     rating VARCHAR(50) DEFAULT 0,
+     user_id INT UNSIGNED NOT NULL,
+     FOREIGN KEY (user_id) REFERENCES users(id)
+         ON DELETE CASCADE
+);
