@@ -1,16 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: andrewbrought
-  Date: 7/27/20
-  Time: 10:14 AM
-  To change this template use File | Settings | File Templates.
---%>
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
+    <style>
+        .modal-backdrop {
+            /* bug fix - no overlay */
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,9 +42,9 @@
                                 <li role="presentation" class="nav-tabs col-sm">
                                     <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab"> Signup</a>
                                 </li>
-                            </ul>
-                            <h4 class="modal-title"></h4>
+<%--                            <h4 class="modal-title"></h4>--%>
                             <button class="close" data-dismiss="modal">&times;</button>
+                            </ul>
                         </div>
 
                         <%--                        Modal body--%>
@@ -69,11 +70,11 @@
                                                 <input id="password" name="password" class="form-control" type="password">
                                             </div>
                                             <%--  <input type="submit" class="btn btn-primary btn-block" value="Log In">--%>
-                                        </form>
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" type="submit">Log in</button>
                                             <button class="btn btn-primary" data-dismiss="modal">Close</button>
                                         </div>
+                                        </form>
                                     </div>
 
 
