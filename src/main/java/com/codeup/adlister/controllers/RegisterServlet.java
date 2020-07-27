@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
                 || email.isEmpty()
                 || password.isEmpty();
 
-//        boolean passwordsNotValid = !BCrypt.checkpw(passwordConfirmation, hashedPw);
+        boolean passwordsNotValid = !BCrypt.checkpw(passwordConfirmation, hashedPw);
 
 
         if (inputHasErrors) {
@@ -41,11 +41,10 @@ public class RegisterServlet extends HttpServlet {
 //            request.setAttribute("message", message);
             response.sendRedirect("/register");
             JOptionPane.showMessageDialog(null, "Not all fields were properly filled in. Please try again! : )");
-        } //else if(passwordsNotValid){
-//            response.sendRedirect("/register");
-//            JOptionPane.showMessageDialog(null, "Passwords did not match. Please re-enter your passwords! : )");
-//        }
-        else if(duplicate != null) {
+        } else if(passwordsNotValid){
+            response.sendRedirect("/register");
+            JOptionPane.showMessageDialog(null, "Passwords did not match. Please re-enter your passwords! : )");
+        }else if(duplicate != null) {
 //            message = "This user already exists";
 //            request.setAttribute("message", message);
             response.sendRedirect("/register");
