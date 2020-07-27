@@ -3,15 +3,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<%--    <jsp:include page="/WEB-INF/partials/head.jsp">--%>
-<%--        <jsp:param name="title" value="Please Log In" />--%>
-<%--    </jsp:include>--%>
-<%--    <style>--%>
-<%--        .modal-backdrop {--%>
-<%--            /* bug fix - no overlay */--%>
-<%--            display: none;--%>
-<%--        }--%>
-<%--    </style>--%>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Please Log In" />
+    </jsp:include>
+    <style>
+        .modal-backdrop {
+            /* bug fix - no overlay */
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,24 +26,20 @@
         <div class="col-xs-12">
 
             <%--            Establish target id for nav button--%>
-            <div class="modal" id="logRegModal">
+            <div class="modal" id="regModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
                         <%--                        Modal Header--%>
                         <div class="modal-header container-fluid">
                             <ul class="nav nav-tabs" role="tablist">
-
-                                <%--                                    Login tab --%>
-                                <li role="presentation" class="nav-tabs active col-sm">
-                                    <a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login </a>  </li>
-
+<%--
                                 <%--                                Signup tab --%>
-                                <li role="presentation" class="nav-tabs col-sm">
+                                <li role="presentation" class="nav-tabs active col-sm">
                                     <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab"> Register</a>
                                 </li>
-<%--                            <h4 class="modal-title"></h4>--%>
-                            <button class="close" data-dismiss="modal">&times;</button>
+                                <%--                            'x' to close--%>
+                                <button class="close" data-dismiss="modal">&times;</button>
                             </ul>
                         </div>
 
@@ -53,33 +49,13 @@
                             <div role="tabpanel">
                                 <!-- Nav tabs -->
 
-
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <%--                                    Login pane--%>
-                                    <div role="tabpanel" class="tab-pane active" id="login">
-
-                                        <h4>Login</h4>
-                                        <form action="/login" method="POST">
-                                            <div class="form-group">
-                                                <label for="username">Username</label>
-                                                <input id="username" name="username" class="form-control" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password">Password</label>
-                                                <input id="password" name="password" class="form-control" type="password">
-                                            </div>
-                                            <%--  <input type="submit" class="btn btn-primary btn-block" value="Log In">--%>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-primary" type="submit">Log in</button>
-                                            <button class="btn btn-primary" data-dismiss="modal">Close</button>
-                                        </div>
-                                        </form>
-                                    </div>
-
 
                                     <%--                                    Signup panel --%>
-                                    <div role="tabpanel" class="tab-pane" id="signUp">
+                                    <div role="tabpanel" class="tab-pane active" id="signUp">
+
                                         <h4>Register</h4>
                                         <%--                                    Signup form --%>
                                         <form action="/register" method="post">
