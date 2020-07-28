@@ -1,5 +1,8 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
-@WebServlet (name = "SettingsServlet", urlPatterns = "/settings")
-public class SettingsServlet extends HttpServlet {
+@WebServlet (name = "DeleteServlet", urlPatterns = "/delete")
+public class DeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,17 +22,17 @@ public class SettingsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-
-        if (req.getParameter("theme").equals("dark")){
-            session.setAttribute("font-color", "#fff");
-            session.setAttribute("background-color", "#000");
-
-        } else {
-            session.setAttribute("font-color", "#000");
-            session.setAttribute("background-color", "#fff");
-
+        User current = (User) req.getSession().getAttribute("user");
+        long userId = current.getId();
+        try {
+            DaoFactory.getUsersDao().deleteUser((int) userId);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        resp.sendRedirect("/profile");
+        HttpSession session = req.getSession(false);
+        if (session != null){
+            session.invalidate();
+        }
+        resp.sendRedirect("/login");
     }
 }
