@@ -21,6 +21,41 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+        private static final String DELETE_USERS_SQL = "delete from users where id = ?";
+
+    public boolean deleteUser(int id) throws SQLException {
+        boolean rowDeleted;
+        try (
+            PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);){
+                statement.setInt(1, id);
+                rowDeleted = statement.executeUpdate() > 0;
+            }
+            return rowDeleted;
+        }
+
+    @Override
+    public boolean updateUser(User user) throws SQLException{
+        boolean rowUpdated;
+        String updateUsersSql = "update users set username = ?, email = ?, password = ? where id = ?";
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        System.out.println(user.getEmail());
+        System.out.println(user.getId());
+
+        try  {
+            PreparedStatement statement = connection.prepareStatement(updateUsersSql);
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPassword());
+            statement.setLong(4, user.getId());
+            statement.executeUpdate();
+            rowUpdated = true;
+//            rowUpdated = statement.executeUpdate() > 0;
+        } catch (SQLException e){
+            throw new RuntimeException("error", e);
+        }
+        return rowUpdated;
+    }
 
     @Override
     public User findByUsername(String username) {
