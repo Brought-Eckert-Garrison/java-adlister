@@ -1,7 +1,11 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+<<<<<<< HEAD
+import com.codeup.adlister.models.Config;
+=======
 import com.codeup.adlister.models.User;
+>>>>>>> master
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -19,7 +23,7 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUser(),
+                config.getUsername(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -38,6 +42,9 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+<<<<<<< HEAD
+    
+=======
 
     @Override
     public List<Ad> usersAds(int id) {
@@ -97,6 +104,7 @@ public class MySQLAdsDao implements Ads {
     }
 
 
+>>>>>>> master
     @Override
     public Long insert(Ad ad) {
         try {
@@ -129,5 +137,22 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+    
+    @Override
+    public Ad findAdById(int id) throws SQLException {
+        String query = "SELECT * FROM ads WHERE id = ?";
+        PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        stmt.setInt(1, id);
+        stmt.executeQuery();
+        ResultSet rs = stmt.getGeneratedKeys();
+        rs.next();
+        
+        int adId = rs.getInt(1);
+        int userId = rs.getInt(2);
+        String title = rs.getString(3);
+        String description = rs.getString(4);
+    
+        return new Ad(adId, userId, title, description);
     }
 }

@@ -10,6 +10,10 @@ public interface Ads {
     List<Ad> all();
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
+<<<<<<< HEAD
+    //
+    Ad findAdById(int id) throws SQLException;
+=======
     // Find ads from specific user
     List<Ad> usersAds(int id);
     //Update ad
@@ -19,4 +23,5 @@ public interface Ads {
 //    delete ad
     boolean deleteAd(int id) throws SQLException;
 
+>>>>>>> master
 }
