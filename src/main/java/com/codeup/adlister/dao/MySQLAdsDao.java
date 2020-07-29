@@ -1,11 +1,8 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
-<<<<<<< HEAD
-import com.codeup.adlister.models.Config;
-=======
-import com.codeup.adlister.models.User;
->>>>>>> master
+
+
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -23,7 +20,7 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUsername(),
+                config.getUser(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -42,9 +39,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
-<<<<<<< HEAD
-    
-=======
+
 
     @Override
     public List<Ad> usersAds(int id) {
@@ -59,17 +54,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    @Override
-    public Ad findAdById(int id) {
-        String query = "SELECT * FROM ads WHERE user_id = ? LIMIT 1";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setInt(1, id);
-            return extractAd(stmt.executeQuery());
-        } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by username", e);
-        }
-    }
 
     @Override
     public boolean deleteAd(int id) throws SQLException {
@@ -104,7 +88,7 @@ public class MySQLAdsDao implements Ads {
     }
 
 
->>>>>>> master
+
     @Override
     public Long insert(Ad ad) {
         try {
