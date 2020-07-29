@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -13,24 +14,24 @@
     </style>
 </head>
 <body>
-
+<%--<% session.getAttribute("adOject"); %>--%>
 <!-- Modal -->
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
 
             <%--            Establish target id for nav button--%>
-            <div class="modal" id="regModal">
+            <div class="modal" id="editModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
                         <%--                        Modal Header--%>
                         <div class="modal-header container-fluid">
                             <ul class="nav nav-tabs" role="tablist">
-<%--
-                                <%--                                Signup tab --%>
+                                <%--
+                                                                <%--                                Signup tab --%>
                                 <li role="presentation" class="nav-tabs active col-sm">
-                                    <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab"> Register</a>
+                                    <a href="#edit" aria-controls="edit" role="tab" data-toggle="tab"> Edit / Delete</a>
                                 </li>
                                 <%--                            'x' to close--%>
                                 <button class="close" data-dismiss="modal">&times;</button>
@@ -45,32 +46,32 @@
 
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <%--                                    Login pane--%>
 
-                                    <%--                                    Signup panel --%>
-                                    <div role="tabpanel" class="tab-pane active" id="signUp">
+                                    <%--                                    Update panel --%>
+                                    <div role="tabpanel" class="tab-pane active" id="edit">
 
-                                        <h4>Register</h4>
-                                        <%--                                    Signup form --%>
-                                        <form action="/register" method="post">
+                                        <h4>Edit / Delete</h4>
+                                        <%--                                    Update form --%>
+                                        <form action="/ad-update" method="post">
+                                            <input type="hidden" name="adId" id="adId" />
                                             <div class="form-group">
-                                                <label for="reg_username">Username</label>
-                                                <input id="reg_username" name="reg_username" class="form-control" type="text">
+                                                <label for="editTitle">Title: <c:out value='${ad.title}' /></label>
+                                                <input id="editTitle" name="editTitle" class="form-control" type="text">
                                             </div>
                                             <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input id="email" name="email" class="form-control" type="text">
+                                                <label for="editDescription">Description: ${ad.description}</label>
+                                                <input id="editDescription" name="editDescription" class="form-control" type="text">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="reg_password">Password</label>
-                                                <input id="reg_password" name="reg_password" class="form-control" type="password">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="confirm_password">Confirm Password</label>
-                                                <input id="confirm_password" name="confirm_password" class="form-control" type="password">
-                                            </div>
+
                                             <input type="submit" class="btn btn-primary btn-block">
                                         </form>
+                                        <div class="form-group">
+                                            <form action="/ad-delete" method="post">
+                                                <input type="hidden" name="deleteId" id="deleteId" />
+
+                                                <input type="submit" class="btn btn-danger btn-block pt-2" value="Delete">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -81,6 +82,7 @@
         </div>
     </div>
 </div>
+
 
 
 

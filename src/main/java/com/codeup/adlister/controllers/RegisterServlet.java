@@ -23,37 +23,31 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("reg_password");
         String passwordConfirmation = request.getParameter("confirm_password");
+        String hashPw = BCrypt.hashpw(password, BCrypt.gensalt(12));
         User duplicate = DaoFactory.getUsersDao().findByUsername(username);
-        String hashedPw = BCrypt.hashpw(password, BCrypt.gensalt(12));
-//        String message = null;
 
+//        String message = null;
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
                 || password.isEmpty();
 
-        boolean passwordsNotValid = !BCrypt.checkpw(passwordConfirmation, hashedPw);
+        boolean passwordsNotValid = !BCrypt.checkpw(passwordConfirmation, hashPw);
 
 
         if (inputHasErrors) {
-//            message = "Not all fields were filled in";
-//            request.setAttribute("message", message);
             response.sendRedirect("/register");
             JOptionPane.showMessageDialog(null, "Not all fields were properly filled in. Please try again! : )");
         } else if(passwordsNotValid){
             response.sendRedirect("/register");
             JOptionPane.showMessageDialog(null, "Passwords did not match. Please re-enter your passwords! : )");
         }else if(duplicate != null) {
-//            message = "This user already exists";
-//            request.setAttribute("message", message);
             response.sendRedirect("/register");
             JOptionPane.showMessageDialog(null, "This username already exists. Please enter something original! : )");
         } else {
-//            message = " ";
-//            request.setAttribute("message", message);
 
-            User user = new User(username, email, hashedPw);
+            User user = new User(username, email, hashPw);
             DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
         }

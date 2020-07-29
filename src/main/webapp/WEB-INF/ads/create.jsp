@@ -4,6 +4,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
+    <%@ include file="/WEB-INF/partials/theme.jsp" %>
 </head>
 <body>
     <div class="container">

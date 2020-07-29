@@ -15,6 +15,8 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-backdrop="false" data-toggle="modal" data-target="#regModal">Register</a>
                 </li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/update">Settings</a></li>
             </c:when>
             <c:otherwise>
             <li class="nav-item">
