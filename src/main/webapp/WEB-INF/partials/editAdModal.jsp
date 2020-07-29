@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -30,7 +31,7 @@
                                 <%--
                                                                 <%--                                Signup tab --%>
                                 <li role="presentation" class="nav-tabs active col-sm">
-                                    <a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab"> Edit / Delete</a>
+                                    <a href="#edit" aria-controls="signUp" role="tab" data-toggle="tab"> Edit / Delete</a>
                                 </li>
                                 <%--                            'x' to close--%>
                                 <button class="close" data-dismiss="modal">&times;</button>
@@ -47,13 +48,13 @@
                                 <div class="tab-content">
 
                                     <%--                                    Update panel --%>
-                                    <div role="tabpanel" class="tab-pane active" id="signUp">
+                                    <div role="tabpanel" class="tab-pane active" id="edit">
 
                                         <h4>Edit / Delete</h4>
                                         <%--                                    Update form --%>
-                                        <form action="/update" method="post">
+                                        <form action="/ad-update" method="post">
                                             <div class="form-group">
-                                                <label for="title">Title: ${adObject.title}</label>
+                                                <label for="title">Title: <c:out value='${ad.title}' /></label>
                                                 <input id="title" name="title" class="form-control" type="text">
                                             </div>
                                             <div class="form-group">

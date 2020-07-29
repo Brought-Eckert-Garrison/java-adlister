@@ -20,9 +20,9 @@
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <form>
-                <input type="hidden" name="adObject" value="${ad}">
+                <input type="hidden" name="ad" value="<c:out value='${ad.id}' />" />
                 <a href="#" id="adNumber" class="nav-link" data-backdrop="false" data-toggle="modal" data-target="#editModal"><h2>${ad.title}</h2></a>
-                <p id="par">${ad.description}</p>
+<%--                <p id="par">${ad.description}</p>--%>
             </form>
         </div>
     </c:forEach>

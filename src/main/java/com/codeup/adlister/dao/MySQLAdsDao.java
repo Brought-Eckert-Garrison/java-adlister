@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -38,6 +39,48 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> usersAds(int id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    @Override
+    public Ad findAdById(int id) {
+        String query = "SELECT * FROM ads WHERE user_id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            return extractAd(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
+        }
+    }
+
+    @Override
+    public boolean updateAd(Ad ad) throws SQLException{
+        boolean rowUpdated;
+        String updateUsersSql = "update ads set title = ?, description = ? where user_id = ?";
+
+        try  {
+            PreparedStatement statement = connection.prepareStatement(updateUsersSql);
+            statement.setString(1, ad.getTitle());
+            statement.setString(2, ad.getDescription());
+            statement.setLong(3, ad.getUserId());
+            statement.executeUpdate();
+            rowUpdated = statement.executeUpdate() > 0;
+        } catch (SQLException e){
+            throw new RuntimeException("error", e);
+        }
+        return rowUpdated;
+    }
 
 
     @Override

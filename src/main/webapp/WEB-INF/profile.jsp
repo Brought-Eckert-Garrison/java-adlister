@@ -8,6 +8,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="partials/editAdModal.jsp" />
 
 <%--====Display User====--%>
     <div class="container">
@@ -21,8 +22,11 @@
             <div class="col-sm-4 d-flex flex-column">
                 <c:forEach var="ad" items="${ads}">
                     <div class="col-md-8">
-                        <h2>${ad.title}</h2>
-                        <p>${ad.description}</p>
+                        <form>
+                            <input type="hidden" name="ad" value="<c:out value='${ad}' />" />
+                            <a href="#" class="nav-link" data-backdrop="false" data-toggle="modal" data-target="#editModal"><h4>${ad.title}</h4></a>
+                            <p>${ad.description}</p>
+                        </form>
                     </div>
                 </c:forEach>
             </div>
