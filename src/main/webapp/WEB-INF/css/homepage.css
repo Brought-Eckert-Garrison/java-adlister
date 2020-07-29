@@ -1,0 +1,17 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+body {
+	background-color: #e5e5e5;
+}
+span {
+	border-right: .05em solid;
+	animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+	50% {
+		border-color: transparent;
+	}
+}
