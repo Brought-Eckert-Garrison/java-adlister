@@ -1,6 +1,6 @@
 package com.codeup.adlister.dao;
 
-import com.sun.scenario.Settings;
+import com.codeup.adlister.models.Config;
 
 public class DaoFactory {
     private static Ads adsDao;
