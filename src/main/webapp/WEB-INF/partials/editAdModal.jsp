@@ -31,7 +31,7 @@
                                 <%--
                                                                 <%--                                Signup tab --%>
                                 <li role="presentation" class="nav-tabs active col-sm">
-                                    <a href="#edit" aria-controls="signUp" role="tab" data-toggle="tab"> Edit / Delete</a>
+                                    <a href="#edit" aria-controls="edit" role="tab" data-toggle="tab"> Edit / Delete</a>
                                 </li>
                                 <%--                            'x' to close--%>
                                 <button class="close" data-dismiss="modal">&times;</button>
@@ -53,17 +53,25 @@
                                         <h4>Edit / Delete</h4>
                                         <%--                                    Update form --%>
                                         <form action="/ad-update" method="post">
+                                            <input type="hidden" name="adId" id="adId" />
                                             <div class="form-group">
-                                                <label for="title">Title: <c:out value='${ad.title}' /></label>
-                                                <input id="title" name="title" class="form-control" type="text">
+                                                <label for="editTitle">Title: <c:out value='${ad.title}' /></label>
+                                                <input id="editTitle" name="editTitle" class="form-control" type="text">
                                             </div>
                                             <div class="form-group">
-                                                <label for="description">Description: ${ad.description}</label>
-                                                <input id="description" name="description" class="form-control" type="text">
+                                                <label for="editDescription">Description: ${ad.description}</label>
+                                                <input id="editDescription" name="editDescription" class="form-control" type="text">
                                             </div>
 
                                             <input type="submit" class="btn btn-primary btn-block">
                                         </form>
+                                        <div class="form-group">
+                                            <form action="/ad-delete" method="post">
+                                                <input type="hidden" name="deleteId" id="deleteId" />
+
+                                                <input type="submit" class="btn btn-danger btn-block pt-2" value="Delete">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +82,7 @@
         </div>
     </div>
 </div>
+
 
 
 

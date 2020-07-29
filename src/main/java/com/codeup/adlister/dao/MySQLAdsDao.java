@@ -65,15 +65,29 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public boolean deleteAd(int id) throws SQLException {
+        String DELETE_ADS_SQL = "DELETE FROM ads WHERE id = ?";
+        boolean rowDeleted;
+        try {
+                PreparedStatement statement = connection.prepareStatement(DELETE_ADS_SQL);
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error targeting id", e);
+        }
+        return rowDeleted;
+    }
+
+    @Override
     public boolean updateAd(Ad ad) throws SQLException{
         boolean rowUpdated;
-        String updateUsersSql = "update ads set title = ?, description = ? where user_id = ?";
+        String updateUsersSql = "update ads set title = ?, description = ? where id = ?";
 
         try  {
             PreparedStatement statement = connection.prepareStatement(updateUsersSql);
             statement.setString(1, ad.getTitle());
             statement.setString(2, ad.getDescription());
-            statement.setLong(3, ad.getUserId());
+            statement.setLong(3, ad.getId());
             statement.executeUpdate();
             rowUpdated = statement.executeUpdate() > 0;
         } catch (SQLException e){
