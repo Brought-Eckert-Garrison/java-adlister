@@ -53,7 +53,7 @@
                                         <h4>Edit / Delete</h4>
                                         <%--                                    Update form --%>
                                         <form action="/ad-update" method="post">
-                                            <input type="hidden" name="adId" id="adId" />
+                                            <input type="hidden" name="adId" id="adId" placeholder="" />
                                             <div class="form-group">
                                                 <label for="editTitle">Title: <c:out value='${ad.title}' /></label>
                                                 <input id="editTitle" name="editTitle" class="form-control" type="text">

@@ -51,7 +51,7 @@
             <div class="row row-cols-1 row-cols-md-2">
 <%--                    <input type="hidden" data-name="${status.count}" data-uid="${user.id}" >--%>
                 <c:forEach var="ad" items="${ads}">
-                <c:forEach var="user" items="${users}">
+<%--                <c:forEach var="user" items="${users}">--%>
 
 
 
@@ -73,15 +73,15 @@
 <%--        <h5 class="card-title"--%>
 <%--    >${ad.title}</h5></a>--%>
 
-    <h6 class="card-subtitle mb-2 text-muted"></h6>
-                                <p class="card-text">${ad.description}</p>
+    <h6 class="card-subtitle mb-3 text-muted"></h6>
+<%--                                <p class="card-text">${ad.description}</p>--%>
                             </div>
                             <div class="card-footer"></div>
                         </div>
                     </div>
 <%--                    </form>--%>
                 </c:forEach>
-                </c:forEach>
+<%--                </c:forEach>--%>
             </div>
         </div>
     </body>

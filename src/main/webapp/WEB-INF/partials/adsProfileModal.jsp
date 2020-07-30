@@ -55,20 +55,20 @@
 
                                                 <h4 class="card-title">Title: </h4>
                                                 <h4 class="adTitle"></h4>
-                                                <h4 class="card-title">Description: </h4>
+                                                <h4 class="mt-3 card-title">Description: </h4>
                                                 <h4 class="card-text adDescription"></h4>
 <%--                                                <a href="/adsHome" class="btn btn-primary">View All Ads</a>--%>
                                             </div>
-                                            <h2 class="text-center">Posted By:</h2>
-                                            <hr>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Username: </h4>
-                                                    <h4 class="user"></h4>
-                                                    <h4 class="card-text">Contact Info: </h4>
-                                                    <h4 class="email"></h4>
-                                                </div>
-                                            </div>
+<%--                                            <h2 class="text-center">Posted By:</h2>--%>
+<%--                                            <hr>--%>
+<%--                                            <div class="card">--%>
+<%--                                                <div class="card-body">--%>
+<%--                                                    <h4 class="card-title">Username: </h4>--%>
+<%--                                                    <h4 class="user"></h4>--%>
+<%--                                                    <h4 class="card-text">Contact Info: </h4>--%>
+<%--                                                    <h4 class="email"></h4>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
 
                                             <button class="btn btn-primary" data-dismiss="modal">Close</button>
                                     </div>
