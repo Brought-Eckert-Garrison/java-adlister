@@ -8,7 +8,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/adsHome">Adlister</a>
         </div>
-        <ul class="nav navbar-nav navbar-right" role="tablist">
+        <ul class="nav navbar-nav navbar-right d-inline" role="tablist">
         <c:choose>
             <c:when test="${sessionScope.user != null}">
                 <li><a href="/logout">Logout</a></li>
