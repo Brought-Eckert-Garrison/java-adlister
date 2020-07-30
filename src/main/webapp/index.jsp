@@ -5,6 +5,7 @@
     <jsp:include page="WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Adlister - Home" />
     </jsp:include>
+
 <%--    <jsp:include page="WEB-INF/css/homepage.css"/>--%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
@@ -21,46 +22,46 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container-fluid position-relative d-flex flex-column">
-    <h1 class="text-center position-absolute align-self-center" style="bottom: -250px;">Welcome to Adlister</h1>
+    <h1 class="text-center position-absolute align-self-center pb-3" style="bottom: -250px;">Welcome to Adlister</h1>
     <div id="typewriter" class="container text-wrap position-absolute align-self-center d-inline-flex" style="background-color: rgba(76, 76, 76, .6); color: #e5e5e5; width: 20%; z-index: 100; bottom: -360px;">
         <h3>Where people come to buy and sell experiences.</h3>
     </div>
 </div>
-<div class="container position-relative d-flex justify-content-end">
-    <h2 class="position-absolute" style="z-index: 101; bottom: -450px; right: 300px">Recent posts:</h2>
-    <div class="card-group position-absolute d-flex flex-column" style="z-index: 101; bottom: -1100px;">
-        <div class="card mb-3" style="width: 30rem;">
-            <div class="card-body">
-                <a href="#" class="card-link"><h5 class="card-title">${ads.get(ads.size() - 1).title}</h5></a>
-                <h6 class="card-subtitle mb-2 text-muted"></h6>
-                <p class="card-text">${ads.get(ads.size() - 1).description}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">by @someone</small>
-            </div>
-        </div>
-        <div class="card mb-3" style="width: 30rem;">
-            <div class="card-body">
-                <a href="#" class="card-link"><h5 class="card-title">${ads.get(ads.size() - 2).title}</h5></a>
-                <h6 class="card-subtitle mb-2 text-muted"></h6>
-                <p class="card-text">${ads.get(ads.size() - 2).description}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">by @someone</small>
-            </div>
-        </div>
-        <div class="card mb-3" style="width: 30rem;">
-            <div class="card-body">
-                <a href="#" class="card-link"><h5 class="card-title">${ads.get(ads.size() - 3).title}</h5></a>
-                <h6 class="card-subtitle mb-2 text-muted"></h6>
-                <p class="card-text">${ads.get(ads.size() - 3).description}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">by @someone</small>
-            </div>
-        </div>
-    </div>
-</div>
+<%--<div class="container position-relative d-flex justify-content-end">--%>
+<%--    <h2 class="position-absolute" style="z-index: 101; bottom: -450px; right: 300px">Recent posts:</h2>--%>
+<%--    <div class="card-group position-absolute d-flex flex-column" style="z-index: 101; bottom: -1100px;">--%>
+<%--        <div class="card mb-3" style="width: 30rem;">--%>
+<%--            <div class="card-body">--%>
+<%--                <a href="#" class="card-link"><h5 class="card-title">${ads.get(ads.size() - 1).title}</h5></a>--%>
+<%--                <h6 class="card-subtitle mb-2 text-muted"></h6>--%>
+<%--                <p class="card-text">${ads.get(ads.size() - 1).description}</p>--%>
+<%--            </div>--%>
+<%--            <div class="card-footer">--%>
+<%--                <small class="text-muted">by @someone</small>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="card mb-3" style="width: 30rem;">--%>
+<%--            <div class="card-body">--%>
+<%--                <a href="#" class="card-link"><h5 class="card-title">${ads.get(ads.size() - 2).title}</h5></a>--%>
+<%--                <h6 class="card-subtitle mb-2 text-muted"></h6>--%>
+<%--                <p class="card-text">${ads.get(ads.size() - 2).description}</p>--%>
+<%--            </div>--%>
+<%--            <div class="card-footer">--%>
+<%--                <small class="text-muted">by @someone</small>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="card mb-3" style="width: 30rem;">--%>
+<%--            <div class="card-body">--%>
+<%--                <a href="#" class="card-link"><h5 class="card-title">${ads.get(ads.size() - 3).title}</h5></a>--%>
+<%--                <h6 class="card-subtitle mb-2 text-muted"></h6>--%>
+<%--                <p class="card-text">${ads.get(ads.size() - 3).description}</p>--%>
+<%--            </div>--%>
+<%--            <div class="card-footer">--%>
+<%--                <small class="text-muted">by @someone</small>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 <div id="homepageCarousel" class="carousel slide" data-ride="carousel" style="z-index: -1000">
     <div class="carousel-inner">
         <div class="carousel-item active">

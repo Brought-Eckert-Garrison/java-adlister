@@ -5,6 +5,11 @@
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
     <%@ include file="/WEB-INF/partials/theme.jsp" %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
