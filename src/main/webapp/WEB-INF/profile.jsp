@@ -33,18 +33,19 @@
                 let targetId = $(this).attr("data-dbid");
                 // console.log(targetId);
                 // console.log("test");
-                   let  editTitle = $(this).attr("data-title");
-                   // console.log(editTitle);
-                   let editDescription = $(this).attr("data-desc");
-                    // console.log(editDescription);
-                   $('#editTitle').val(editTitle);
-                   $('#editDescription').val(editDescription);
-                   // dbid = targetId;
+                let  editTitle = $(this).attr("data-title");
+                // console.log(editTitle);
+                let editDescription = $(this).attr("data-desc");
+                // console.log(editDescription);
+                $('#editTitle').val(editTitle);
+                $('#editDescription').val(editDescription);
+                // dbid = targetId;
                 $("#deleteId").val(targetId);
                 $("#adId").val(targetId);
                 $("#adId").attr("placeholder", targetId);
             })
         });
+
 
     </script>
 
@@ -64,7 +65,6 @@
                 <c:forEach var="ad" items="${ads}">
                     <div class="col-md-8">
                         <form>
-<%--                           <c:set var="id" value='${ad.id}' scope="session" />--%>
                             <a href="#" class="nav-link ad" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-backdrop="false" data-toggle="modal" data-target="#editModal"><h4>${ad.title}</h4></a>
                             <p>${ad.description}</p>
                         </form>

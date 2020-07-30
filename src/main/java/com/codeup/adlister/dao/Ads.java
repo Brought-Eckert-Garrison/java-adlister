@@ -19,6 +19,6 @@ public interface Ads {
     Ad findAdById(int id) throws SQLException;
 //    delete ad
     boolean deleteAd(int id) throws SQLException;
-
+    List<Ad> usersAds() throws SQLException;
 
 }
