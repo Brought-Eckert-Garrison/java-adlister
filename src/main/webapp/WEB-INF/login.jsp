@@ -14,18 +14,21 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Please Log In</h1>
+        <h1 class="text-center text-white">Please Log In</h1>
         <form action="/login" method="POST">
-            <div class="form-group">
+            <div class="form-group text-white">
                 <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
-            <div class="form-group">
+            <div class="form-group text-white">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
+    </div>
+    <div class="img-fluid fixed-top" style="z-index: -1000">
+        <img src="img/grayscale-photography-of-person-holding-cassette-tape-1745936.jpg" class="d-block w-80" alt="imac">
     </div>
 </body>
 </html>

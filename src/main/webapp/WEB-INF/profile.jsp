@@ -56,14 +56,14 @@
 
 <%--====Display User====--%>
     <div class="container">
-        <h1 class="text-center">Welcome, ${sessionScope.user.username}!</h1>
+        <h1 class="text-center text-white">Welcome, ${sessionScope.user.username}!</h1>
     </div>
     <hr>
     <div class="container">
         <div class="row">
             <div class="col-sm-4 d-flex flex-column">
                 <c:forEach var="ad" items="${ads}">
-                    <div class="col-md-8">
+                    <div class="col-md-8 text-white">
                         <form>
                             <a href="#" class="nav-link ad" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-backdrop="false" data-toggle="modal" data-target="#editModal"><h4>${ad.title}</h4></a>
                             <p>${ad.description}</p>
@@ -72,14 +72,14 @@
                 </c:forEach>
             </div>
             <div class="col-sm-8">
-                <h1 class="text-center">Create a new Ad</h1>
+                <h1 class="text-center text-white">Create a new Ad</h1>
                 <form action="/ads/create" method="post">
 
-                    <div class="form-group">
+                    <div class="form-group text-white">
                         <label for="title">Title</label>
                         <input id="title" name="title" class="form-control" type="text">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group text-white">
                         <label for="description">Description</label>
                         <textarea id="description" name="description" class="form-control" type="text"></textarea>
                     </div>
@@ -89,7 +89,9 @@
         </div>
     </div>
 
-
+    <div class="img-fluid fixed-top" style="z-index: -1000">
+        <img src="img/grayscale-photography-of-person-holding-cassette-tape-1745936.jpg" class="d-block w-80" alt="imac">
+    </div>
 
 
 
