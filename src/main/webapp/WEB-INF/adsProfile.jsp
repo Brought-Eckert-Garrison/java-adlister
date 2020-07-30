@@ -17,25 +17,16 @@
             <h2 class="text-center">Ad Information:</h2>
             <hr>
             <div class="card">
-                <%--                <div class="card-header">--%>
-                <%--                    Ad Information--%>
-                <%--                </div>--%>
+<%--                <div class="card-header">--%>
+<%--                    Ad Information--%>
+<%--                </div>--%>
                 <div class="card-body">
-                    <h5 class="card-title">Title: </h5>
-                    <p class="card-text">Description: </p>
-                    <a href="/ads" class="btn btn-primary">View All Ads</a>
+                    <%= request.getAttribute("ad")%>
+                    <h5 class="card-title" id="title">Title: '${ad.title}'</h5>
+                    <p class="card-text" id="description">Description: '${sessionScope.ad.description}'</p>
+                    <a href="/adsHome" class="btn btn-primary">View All Ads</a>
                 </div>
             </div>
-            <%--            <div class="card">--%>
-            <%--                <div class="card">--%>
-            <%--                        <img src="..." class="card-img-top" alt="...">--%>
-            <%--                        <div class="card-body">--%>
-            <%--                            <h5 class="card-title">${ad.title}</h5>--%>
-            <%--                            <p class="card-text">${ad.description}.</p>--%>
-            <%--                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--%>
-            <%--                        </div>--%>
-            <%--                </div>--%>
-            <%--            </div>--%>
             <br>
         </div>
         <div class="col-sm-6">
@@ -43,9 +34,8 @@
             <hr>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Username: ${sessionScope.user.username}</h5>
-                    <h5 class="card-text">Contact Info: ${sessionScope.user.email}</h5>
-                    <a href="/profile" class="btn btn-primary">View profile</a>
+                    <h5 class="card-title">Username: ${user.username}</h5>
+                    <h5 class="card-text">Contact Info: ${user.email}</h5>
                 </div>
             </div>
         </div>
