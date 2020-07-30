@@ -135,4 +135,16 @@ public class MySQLUsersDao implements Users {
         return users;
     }
 
+//    @Override
+//    public List<Object> usersAds() {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = connection.prepareStatement("SELECT username, email, title, descritpion FROM users");
+//            ResultSet rs = stmt.executeQuery();
+//            return createUsersFromResults(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving all users.", e);
+//        }
+//    }
+
 }
