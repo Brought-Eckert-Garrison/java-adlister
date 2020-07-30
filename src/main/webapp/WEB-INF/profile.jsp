@@ -24,21 +24,22 @@
             $(document).on('click', '.ad', function(e) {
                 e.preventDefault();
                 // e.stopImmediatePropagation();
-                let targetId = $(this).attr("data-uid");
+                let targetId = $(this).attr("data-dbid");
                 // console.log(targetId);
                 // console.log("test");
-                   let  editTitle = $(this).attr("data-title");
-                   // console.log(editTitle);
-                   let description = $(this).attr("data-desc");
-                    // console.log(editDescription);
-                   $('#editTitle').val(editTitle);
-                   $('#editDescription').val(description);
-                   // dbid = targetId;
-
+                let  editTitle = $(this).attr("data-title");
+                // console.log(editTitle);
+                let editDescription = $(this).attr("data-desc");
+                // console.log(editDescription);
+                $('#editTitle').val(editTitle);
+                $('#editDescription').val(editDescription);
+                // dbid = targetId;
+                $("#deleteId").val(targetId);
                 $("#adId").val(targetId);
                 $("#adId").attr("placeholder", targetId);
             })
         });
+
 
     </script>
 

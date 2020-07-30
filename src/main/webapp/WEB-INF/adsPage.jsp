@@ -26,12 +26,12 @@
                     let targetUser = $(this).attr('data-username');
                     let count = $(this).attr("data-name");
 
-                   //this is the logic I want, but it doesn't run...
+                   // this is the logic I want, but it doesn't run...
                    //  if(usersId === uId) {
                    //  }
 
-                        $(".user").html("<h4>" + targetUser + "</h4>");
-                        $(".email").html("<h4>" + userEmail + "</h4>");
+                        // $(".user").html("<h4>" + targetUser + "</h4>");
+                        // $(".email").html("<h4>" + userEmail + "</h4>");
                     $(".adTitle").html("<h4>" + targetTitle + "</h4>");
                     $(".adDescription").html("<h4>" + targetDescription + "</h4>");
 
@@ -66,7 +66,7 @@
 <%--    profile" name="profileId" data-id="${ad.id}--%>
 
 
-        <a href="#" class="nav-link profile" data-user="${user.username}" data-email="${user.email}" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-userId="${ad.userId}" data-backdrop="false" data-toggle="modal" data-target="#profileModal"><h4>${ad.title}</h4></a>
+        <a href="#" class="nav-link profile" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-userId="${ad.userId}" data-backdrop="false" data-toggle="modal" data-target="#profileModal"><h4>${ad.title}</h4></a>
 
 
 <%--    <a href="/ad/profile?id=${ad.id}" class="card-link">--%>

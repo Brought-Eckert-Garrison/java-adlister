@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -59,16 +60,20 @@
                                                 <h4 class="card-text adDescription"></h4>
 <%--                                                <a href="/adsHome" class="btn btn-primary">View All Ads</a>--%>
                                             </div>
-<%--                                            <h2 class="text-center">Posted By:</h2>--%>
-<%--                                            <hr>--%>
-<%--                                            <div class="card">--%>
-<%--                                                <div class="card-body">--%>
-<%--                                                    <h4 class="card-title">Username: </h4>--%>
-<%--                                                    <h4 class="user"></h4>--%>
-<%--                                                    <h4 class="card-text">Contact Info: </h4>--%>
-<%--                                                    <h4 class="email"></h4>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
+                                            <h2 class="text-center">Posted By:</h2>
+                                            <hr>
+                                            <c:forEach var="user" items="${users}" >
+                                            <c:if test="${ad.getUserId() == user.id}" >
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Username: </h4>
+                                                        <h4>${user.username}</h4>
+                                                        <h4 class="card-text">Contact Info: </h4>
+                                                        <h4>${user.email}</h4>
+                                                    </div>
+                                                </div>
+                                                </c:if>
+                                            </c:forEach>
 
                                             <button class="btn btn-primary" data-dismiss="modal">Close</button>
                                     </div>
