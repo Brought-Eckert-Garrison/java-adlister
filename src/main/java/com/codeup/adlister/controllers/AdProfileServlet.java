@@ -28,7 +28,7 @@ public class AdProfileServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        req.getRequestDispatcher("/WEB-INF/adsProfile.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/adsProfileModal.jsp").forward(req, resp);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class AdProfileServlet extends HttpServlet {
             e.printStackTrace();
         }
 //        resp.sendRedirect("/ad/profile");
-        req.getRequestDispatcher("/WEB-INF/adsProfile.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/adsProfileModal.jsp").forward(req, resp);
 
     }
 }

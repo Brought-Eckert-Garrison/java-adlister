@@ -6,7 +6,7 @@
         <jsp:include page="partials/head.jsp">
             <jsp:param name="title" value="Adlister - All Ads" />
         </jsp:include>
-
+        <jsp:include page="/WEB-INF/partials/adsProfileModal.jsp" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -18,12 +18,12 @@
                     console.log("working");
                     let targetId = $(this).attr('data-id');
                     let targetTitle = $(this).attr('data-title');
-                    let targetDescription = $(this).attr('data-description');
+                    let targetDescription = $(this).attr('data-desc');
                     console.log(targetId);
                     console.log(targetTitle);
                     console.log(targetDescription);
-                    $("#title").val(targetTitle);
-                    $("#description").val(targetDescription);
+                    $(".adTitle").html("<h4>" + targetTitle + "</h4>");
+                    $(".adDescription").html("<p>" + targetDescription + "</p>");
                 })
             });
         </script>
@@ -44,14 +44,9 @@
 <%--    data-title="${ad.title}" data-description="${ad.description}" data-id="${ad.id}"--%>
 <%--    profile" name="profileId" data-id="${ad.id}--%>
 
-        <form action="/ad/profile/" method="post">
-        <input type="hidden" name="id" value="${ad.id}"/>
-            <button type="submit" >
-            <a href="/ad/profile?id=${ad.id}" class="card-link">
-                <h5 class="card-title"
-                >${ad.title}</h5></a>
-           </button>
-        </form>
+
+    <a href="#" class="nav-link profile" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-uid="${ad.userId}" data-backdrop="false" data-toggle="modal" data-target="#profileModal"><h4>${ad.title}</h4></a>
+
 
 <%--    <a href="/ad/profile?id=${ad.id}" class="card-link">--%>
 <%--        <h5 class="card-title"--%>
