@@ -33,6 +33,7 @@ public class AdsPageServlet extends HttpServlet {
 //
 //		request.setAttribute("adAuthor", adAuthor);
 //		request.setAttribute("ads", adToUse);
+		request.setAttribute("users", DaoFactory.getUsersDao().allUsers());
 		request.setAttribute("ads", DaoFactory.getAdsDao().all());
 		request.getRequestDispatcher("/WEB-INF/adsPage.jsp").forward(request, response);
 	}

@@ -11,5 +11,6 @@ public interface Users {
     Long insert(User user);
     boolean updateUser(User user) throws SQLException;
     boolean deleteUser(int id) throws SQLException;
+    List<User> allUsers();
     
 }

@@ -15,15 +15,30 @@
             $(document).ready(function () {
                 $(document).on('click', '.profile', function (e) {
                     e.preventDefault();
-                    console.log("working");
+                    // console.log("working");
                     let targetId = $(this).attr('data-id');
                     let targetTitle = $(this).attr('data-title');
                     let targetDescription = $(this).attr('data-desc');
-                    console.log(targetId);
-                    console.log(targetTitle);
-                    console.log(targetDescription);
+
+                    let usersId = $(this).attr('data-userId');
+                    let uId = $(this).attr('data-uid');
+                    let userEmail = $(this).attr('data-email');
+                    let targetUser = $(this).attr('data-username');
+                    let count = $(this).attr("data-name");
+
+                   //this is the logic I want, but it doesn't run...
+                   //  if(usersId === uId) {
+                   //  }
+
+                        $(".user").html("<h4>" + targetUser + "</h4>");
+                        $(".email").html("<h4>" + userEmail + "</h4>");
                     $(".adTitle").html("<h4>" + targetTitle + "</h4>");
-                    $(".adDescription").html("<p>" + targetDescription + "</p>");
+                    $(".adDescription").html("<h4>" + targetDescription + "</h4>");
+
+                    // console.log(targetId);
+                    // console.log(targetTitle);
+                    // console.log(targetDescription);
+
                 })
             });
         </script>
@@ -34,8 +49,14 @@
         <h1>All Ads</h1>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2">
+<%--                    <input type="hidden" data-name="${status.count}" data-uid="${user.id}" >--%>
                 <c:forEach var="ad" items="${ads}">
-                    <form action="/ad/profile/" method="post">
+                <c:forEach var="user" items="${users}">
+
+
+
+
+<%--                    <form action="/ad/profile/" method="post">--%>
 
                     <div class="col mb-4">
                         <div class="card mb-3" style="width: 30rem;">
@@ -45,7 +66,7 @@
 <%--    profile" name="profileId" data-id="${ad.id}--%>
 
 
-    <a href="#" class="nav-link profile" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-uid="${ad.userId}" data-backdrop="false" data-toggle="modal" data-target="#profileModal"><h4>${ad.title}</h4></a>
+        <a href="#" class="nav-link profile" data-user="${user.username}" data-email="${user.email}" data-title="${ad.title}" data-desc="${ad.description}" data-dbid="${ad.id}" data-userId="${ad.userId}" data-backdrop="false" data-toggle="modal" data-target="#profileModal"><h4>${ad.title}</h4></a>
 
 
 <%--    <a href="/ad/profile?id=${ad.id}" class="card-link">--%>
@@ -58,8 +79,8 @@
                             <div class="card-footer"></div>
                         </div>
                     </div>
-                    </form>
-
+<%--                    </form>--%>
+                </c:forEach>
                 </c:forEach>
             </div>
         </div>
