@@ -45,6 +45,7 @@
     </head>
     <body>
         <jsp:include page="partials/navbar.jsp"/>
+        <div class="container bg-gradient-secondary">
 
         <h1>All Ads</h1>
         <div class="container-fluid">
@@ -83,6 +84,11 @@
                 </c:forEach>
 <%--                </c:forEach>--%>
             </div>
+        </div>
+
+<%--        <div class="img-fluid fixed-top" style="z-index: -1000">--%>
+<%--            <img src="img/grayscale-photography-of-person-holding-cassette-tape-1745936.jpg" class="d-block w-80" alt="imac">--%>
+<%--        </div>--%>
         </div>
     </body>
 </html>
